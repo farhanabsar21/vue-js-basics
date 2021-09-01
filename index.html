@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <h1>Talking from vue js</h1>
+    <div id="app">
+        <div v-if="showBooks">
+            <!-- <p>{{ title }} - {{ author }} - {{ age }}</p> -->
+            <ul>
+                <li v-for="item in books" v-bind:class="{fav: item.isFav}" v-on:click="toggleFav(item)">
+                    <img v-bind:src="item.image" v-bind:alt="item.title">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.author }}</p>
+                    <p>age: {{ item.age }}</p>
+                </li>
+            </ul>
+        </div>
+        <!-- <button v-on:click="age++">increase age</button>
+        <button v-on:click="age--">decrease age</button>
+        <button @click="changeTitle(`the new miau`)">change title</button> -->
+        <!-- <button @click="hideBooks">hide books</button> -->
+        <button @click="toggleBooks">
+            <span v-if="showBooks">hide books</span>
+            <span v-else>show books</span>
+        </button>
+        <br>
+        <!-- boxes with mouse -->
+        <!-- <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div> -->
+        <a v-bind:href="url" target="_blank">follow me</a>
+    </div>
+    <script src="./app.js"></script>
+</body>
+</html>
